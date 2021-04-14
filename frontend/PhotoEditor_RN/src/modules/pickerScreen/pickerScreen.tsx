@@ -5,7 +5,7 @@ import {Button} from 'react-native-paper';
 
 import styles from './pickerScreen.style';
 
-const pickerScreen = () => {
+const pickerScreen = props => {
   const handleOpenPicker = () => {
     const options = {
       mediaType: 'photo',
@@ -14,6 +14,9 @@ const pickerScreen = () => {
 
     const callback = res => {
       console.log('res', res);
+      props?.navigation?.navigate('UploadImageScreen', {
+        imageDetails: res,
+      });
     };
 
     launchImageLibrary(options, callback);
