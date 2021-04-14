@@ -25,6 +25,8 @@ app.get('/test', (req,res) => {
 app.post('/upload-pic', (req, res) => {
     let upload = multer({ storage: storage }).single('profile_pic');
 
+    console.log('req',req)
+    console.log('res',res)
     upload(req, res, function(err) {
         // req.file contains information of uploaded file
         // req.body contains information of text fields, if there were any

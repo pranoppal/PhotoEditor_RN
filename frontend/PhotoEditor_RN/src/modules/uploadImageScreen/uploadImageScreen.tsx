@@ -24,7 +24,7 @@ const uploadImageScreen = props => {
     });
     formData.append('width', imageDetails?.width);
 
-    const res = await axios.post('', formData, {
+    const res = await axios.post('https://photoeditor-backend.herokuapp.com/upload-pic', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
