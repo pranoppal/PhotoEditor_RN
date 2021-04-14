@@ -1,50 +1,31 @@
 import express from 'express'
 import multer from 'multer'
-import path from 'path'
+import fs from 'fs'
 
 var router = express.Router();
 const app = express();
 app.get("/", (req, res) => res.send("Express + TypeScript Server, hello"));
-app.listen(process.env.PORT || 5000);
+app.listen(8080, '192.168.43.134')
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'uploads/');
+    destination(req, file, callback) {
+        fs.mkdirSync('./images')
+      callback(null, './images');
     },
+    filename(req, file, callback) {
+      callback(null, `${file.fieldname}_${Date.now()}_${file.originalname}`);
+    },
+  });
 
-    // By default, multer removes file extensions so let's add them back
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
+  const upload = multer({ storage });
 
-app.get('/test', (req,res) => {
-    res.send('got it')
-})
+app.post('/upload-pic', upload.single('file'), (req, res) => {
 
-app.post('/upload-pic', (req, res) => {
-    let upload = multer({ storage: storage }).single('profile_pic');
+    const formdata= req.body
+    console.log('formdata',formdata)
+    console.log('req files',req.files)
 
-    console.log('req',req)
-    console.log('res',res)
-    upload(req, res, function(err) {
-        // req.file contains information of uploaded file
-        // req.body contains information of text fields, if there were any
-
-        // if (req?.fileValidationError) {
-        //     return res.send(req?.fileValidationError);
-        // }
-         if (!req?.file) {
-            return res.send('Please select an image to upload');
-        }
-        else if (err instanceof multer.MulterError) {
-            return res.send(err);
-        }
-        else if (err) {
-            return res.send(err);
-        }
-
-    });
+    console.log('req file',req.file)
 });
 
 module.exports = router
