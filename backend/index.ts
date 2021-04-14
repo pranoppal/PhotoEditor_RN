@@ -4,11 +4,8 @@ import path from 'path'
 
 var router = express.Router();
 const app = express();
-const PORT = 8000;
 app.get("/", (req, res) => res.send("Express + TypeScript Server, hello"));
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
-});
+app.listen(process.env.PORT || 5000);
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
