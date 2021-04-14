@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {Button} from 'react-native-paper';
 
@@ -20,9 +20,28 @@ const pickerScreen = () => {
   };
 
   return (
-    <View>
-      <Text>asdfsdf</Text>
-      <Button onPress={handleOpenPicker}>Select Image</Button>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerLabel}>Photo Picker</Text>
+      </View>
+      <View style={styles.descContainer}>
+        <Image
+          source={require('../../assets/choose.jpg')}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
+        <Text style={styles.descLabel}>Pick your favourite photo</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          onPress={handleOpenPicker}
+          labelStyle={styles.buttonLabelStyle}
+          style={styles.buttonStyle}
+          uppercase={false}
+          mode="contained">
+          Select Image
+        </Button>
+      </View>
     </View>
   );
 };
