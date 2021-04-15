@@ -12,7 +12,7 @@ const uploadImageScreen = props => {
   const uploadFile = async () => {
     let ret = await RNFetchBlob.fetch(
         'POST',
-        'http://192.168.43.134:8080/upload-pic',
+        'http://192.168.43.134:8082/upload-pic',
         {
           'Content-Type': 'multipart/form-data',
         },
@@ -25,7 +25,7 @@ const uploadImageScreen = props => {
           },
         ],
       );
-      return ret;
+      console.log('res',ret.data)
 
   };
 
