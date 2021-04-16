@@ -19,11 +19,9 @@ const uploadImageScreen = props => {
         [
           {
             name: 'file',
-            filename: Date.now() + '.png',
+            filename: Date.now() + "." + imageDetails?.mime?.substring(imageDetails?.mime?.indexOf('/')+1),
             type: imageDetails?.mime,
             data: RNFetchBlob.wrap(imageDetails?.path),
-            height: imageDetails?.height,
-            width: imageDetails?.width
           },
         ],
       );
@@ -33,7 +31,7 @@ const uploadImageScreen = props => {
 
   return (
     <View>
-      <Text>asdf</Text>
+      <Text>Add your favourite frame to the image</Text>
       <Button onPress={uploadFile}>Upload</Button>
     </View>
   );
