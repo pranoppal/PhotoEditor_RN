@@ -20,8 +20,10 @@ const uploadImageScreen = props => {
           {
             name: 'file',
             filename: Date.now() + '.png',
-            type: 'image/png',
-            data: RNFetchBlob.wrap(imageDetails.uri),
+            type: imageDetails?.mime,
+            data: RNFetchBlob.wrap(imageDetails?.path),
+            height: imageDetails?.height,
+            width: imageDetails?.width
           },
         ],
       );
