@@ -39,8 +39,9 @@ const styles = StyleSheet.create({
     height: 50,
     width: 180,
     backgroundColor: colorAccent,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
+    flexDirection:'row',
   },
   uploadImageStyle: {
     height: 200,

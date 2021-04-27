@@ -23,7 +23,7 @@ const UploadImageScreen = props => {
     setUploadStarted(true);
     let ret = await RNFetchBlob.fetch(
       'POST',
-      'https://photoeditor-backend.herokuapp.com/upload-pic',
+      'http://192.168.193.82:8082/upload-pic', //TODO: please change your WiFi IP address
       {
         'Content-Type': 'multipart/form-data',
       },
@@ -66,13 +66,13 @@ const UploadImageScreen = props => {
         </TouchableOpacity>
       </View>
 
-      {isProcessing && (
+      {/* {isProcessing && (
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={uploadFile} style={styles.buttonStyle}>
             <Text style={styles.buttonLabelStyle}>Download Image</Text>
           </TouchableOpacity>
         </View>
-      )}
+      )} */}
     </View>
   );
 };

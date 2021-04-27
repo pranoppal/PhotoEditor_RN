@@ -6,7 +6,7 @@ import Sharp from "sharp";
 var router = express.Router();
 const app = express();
 app.get("/", (req, res) => res.send("Express + TypeScript Server, hello"));
-app.listen(8082, "192.168.43.134");
+app.listen(8082, "192.168.193.82"); //TODO: please change your WiFi IP address
 
 const storage = multer.diskStorage({
   destination(req, file, callback) {
