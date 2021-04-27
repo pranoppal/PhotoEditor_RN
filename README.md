@@ -1,6 +1,7 @@
 
-This app helps in adding frame to your image. 
-**Steps**:
+This app helps in adding frame to your image. <br/>
+
+**Steps**: <br/>
 1.Pick your photo from local gallery. <br/>
 2.Edit it based on your requirements.<br/>
 3.Upload the image to backend <br/>
