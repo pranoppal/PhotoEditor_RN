@@ -1,22 +1,19 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {launchImageLibrary} from 'react-native-image-picker';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import styles from './pickerScreen.style';
 
 const pickerScreen = props => {
   const handleOpenPicker = () => {
-    ImagePicker.openPicker({mediaType: 'photo'}).then(image => {
-      console.log(image);
+    ImagePicker.openPicker({mediaType: 'photo'}).then(pickedImage => {
       const cropperOptions = {
-        path: image.path,
+        path: pickedImage.path,
       };
-      ImagePicker.openCropper(cropperOptions).then(image => {
-        console.log(image);
+      ImagePicker.openCropper(cropperOptions).then(croppedImage => {
         props?.navigation?.navigate('UploadImageScreen', {
-          imageDetails: image,
+          imageDetails: croppedImage,
         });
       });
     });

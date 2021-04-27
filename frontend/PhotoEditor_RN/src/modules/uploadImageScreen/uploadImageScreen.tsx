@@ -6,13 +6,12 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import {Button} from 'react-native-paper';
 import RNFetchBlob from 'rn-fetch-blob';
 import {colorWhite} from '../../utils/colors';
 
 import styles from './uploadImageScreen.style';
 
-const uploadImageScreen = props => {
+const UploadImageScreen = props => {
   const imageDetails = props?.route?.params?.imageDetails;
 
   const [uploadButtonText, setUploadButtonText] = useState('Upload');
@@ -41,13 +40,15 @@ const uploadImageScreen = props => {
       ],
     );
     console.log('res', ret.data);
-    if (ret?.data) setProcessing(true);
+    if (ret?.data) {
+      setProcessing(true);
+    }
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-      <Text style={styles.headerTitleLabel}>Frame Image</Text>
+        <Text style={styles.headerTitleLabel}>Frame Image</Text>
       </View>
       <View style={styles.descContainer}>
         <Image
@@ -76,4 +77,4 @@ const uploadImageScreen = props => {
   );
 };
 
-export default React.memo(uploadImageScreen);
+export default React.memo(UploadImageScreen);
