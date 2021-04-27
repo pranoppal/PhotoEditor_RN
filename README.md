@@ -1,9 +1,10 @@
+
 This app helps in adding frame to your image. 
 **Steps**:
-1.Pick your photo from local gallery.
-2.Edit it based on your requirements.
-3.Upload the image to backend 
-4.Retreive your output image in backend\images folder.
+1.Pick your photo from local gallery. <br/>
+2.Edit it based on your requirements.<br/>
+3.Upload the image to backend <br/>
+4.Retreive your output image in backend\images folder.<br/>
 
 Steps to run the frontend mobile app:
 ```
@@ -46,7 +47,7 @@ In order to generate the output image locally you need to host the backend in yo
 ```
 ipconfig
 ```
-1.Search for IPV4 address of your WiFi/LAN network.
-2.Paste the IP address in line 9:19 of backend\index.ts
-3.Change the Network call url in UploadImageScreen.tsx at line 26:8
+1.Search for IPV4 address of your WiFi/LAN network. <br/>
+2.Paste the IP address in line 9:19 of backend\index.ts. <br/>
+3.Change the Network call url in UploadImageScreen.tsx at line 26:8. <br/>
 
