@@ -50,5 +50,5 @@ ipconfig
 ```
 1.Search for IPV4 address of your WiFi/LAN network. <br/>
 2.Paste the IP address in line 9:19 of backend\index.ts. <br/>
-3.Change the Network call url in UploadImageScreen.tsx at line 26:8. <br/>
+3.Change the Network call url in UploadImageScreen.tsx at line 26:8 <br/>
 
